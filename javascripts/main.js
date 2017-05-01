@@ -2,20 +2,16 @@ console.log("testing main.js");
 
 var clearAll= document.getElementById('clear');
 var output1= document.getElementById('output');
-var output2= document.getElementById('output2');
 var input=document.getElementById('input');
 
 clearAll.addEventListener('click', function(event){
 	console.log('clear button responding');
-	if(output1.innerHTML== !"a" || output2.innerHTML == !"a"){
+	if(output1.innerHTML== 0 || output2.innerHTML == 0){
 		output1.innerHTML="";
-		output2.innerHTML="";
 		console.log('is this working?');
 	}
-	if(output1.innerHTML!= "a" || output2.innerHTML!= "a"){
-		event.stopPropagation(clearAll);
-		console.log('how about this one');
-	}
+
+	console.log(output1.innerHTML);
 });
 
 
@@ -23,7 +19,7 @@ input.addEventListener("keyup", function(event){
 	var key = event.keyCode;
 	if (key === 13) {
 		// console.log("input.value",input.value);
-	output2.innerHTML += input.value + "<button class='delete'>" + 'Delete' + "</button>" + "<br>";
+	output1.innerHTML += input.value + "<button class='delete'>" + 'Delete' + "</button>" + "<br>";
 	input.value = "";
 	}
 });
@@ -31,7 +27,6 @@ input.addEventListener("keyup", function(event){
 
 	// output1.innerHTML= "<p>" +"hello this is a test"+"</p>";
 
-input.addEventListener("keyup", inputToDiv);
 
 //**** AR - When the user clicks on the dark theme checkbox, change the background color of your application to a dark gray, and the font color for messages should be white(ish)... you pick.
 
@@ -64,7 +59,7 @@ function jsonMessage (messages){
 	var divContent;
 	var text= messages;
 	for(var i=0; i< text.length; i++){
-		divContent= "<p>"+ text[i].text+"</p>";
+		divContent= "<span>"+ text[i].text+"</span>"+ "<button class='delete'>" + 'Delete' + "</button>"+"<br>";
 		output1.innerHTML+= divContent;
 	}
 }
