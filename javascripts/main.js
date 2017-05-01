@@ -19,6 +19,20 @@ clearAll.addEventListener('click', function(event){
 
 output1.innerHTML= "<p>" +"hello this is a test"+"</p>";
 
+input.addEventListener("keyup", inputToDiv);
+
+
+///adds message from input to output2 Div
+function inputToDiv () {
+    var inputValue = input.value;
+    console.log("testing input value", inputValue);
+    output2.innerHTML =
+        `<div class="tl-messages"
+        <p>${inputValue}</p>
+        <button>Delete</button>
+        </div>
+        `
+}
 
 
 ////testing out some stuf TL
