@@ -10,7 +10,7 @@ var Chatty = (function(chat){
       		loader.open("GET", "messages.json");
       		loader.send();
       		loader.addEventListener("load", function (){
-      			messages = JSON.parse(this.responseText);
+      			messages = JSON.parse(this.responseText).message;
       			callBack(messages);
       		});
 		}
