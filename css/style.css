@@ -27,3 +27,11 @@
 .darkTheme {
     background-color:
 }
+
+.ar-bodyStyle {
+    background-color: lightgrey;
+}
+
+.ar-fontSize {
+    font-size: 2em;
+}
