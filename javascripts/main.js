@@ -30,11 +30,17 @@ function inputToDiv () {
         `<div class="tl-messages"
         <p>${inputValue}</p>
         <button>Delete</button>
-        </div>
-        `
+        </div>`;
 }
-
-
+function jsonMessage (messages){
+	var divContent;
+	var text= messages;
+	for(var i=0; i< text.length; i++){
+		divContent= "<p>"+ text[i].text+"</p>";
+		output1.innerHTML+= divContent;
+	}
+}
+Chatty.loadMessages(jsonMessage);
 ////testing out some stuf TL
 //var holdClickedDiv;
 //
