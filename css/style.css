@@ -6,6 +6,13 @@
     position: fixed
         top: 0;
 }
+#messageArea{
+	border: 2px solid black;
+	max-width: 90%;
+	margin: 20px 20px;
+	padding-bottom: 150px;
+}
+
 
 .ar-checkboxes {
     margin: 10px 0;
