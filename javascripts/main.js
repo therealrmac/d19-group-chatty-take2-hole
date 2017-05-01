@@ -15,19 +15,6 @@ clearAll.addEventListener('click', function(event){
 });
 
 
-input.addEventListener("keyup", function(event){
-	var key = event.keyCode;
-	if (key === 13) {
-		// console.log("input.value",input.value);
-	output1.innerHTML += input.value + "<button class='delete'>" + 'Delete' + "</button>" + "<br>";
-	input.value = "";
-	}
-});
-
-
-	// output1.innerHTML= "<p>" +"hello this is a test"+"</p>";
-
-
 //**** AR - When the user clicks on the dark theme checkbox, change the background color of your application to a dark gray, and the font color for messages should be white(ish)... you pick.
 
 var darkTheme = document.getElementById("darkTheme");
@@ -64,6 +51,7 @@ function jsonMessage (messages){
 	}
 }
 Chatty.loadMessages(jsonMessage);
+Chatty.inputChange();
 ////testing out some stuf TL
 //var holdClickedDiv;
 //
