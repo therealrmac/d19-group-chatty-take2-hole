@@ -18,7 +18,18 @@ clearAll.addEventListener('click', function(event){
 	}
 });
 
-output1.innerHTML= "<p>" +"hello this is a test"+"</p>";
+input.addEventListener("keyup", function(event){
+	var key = event.keyCode;
+	if (key === 13) {
+		// console.log("input.value",input.value);
+	output2.innerHTML += input.value + "<button class='delete'>" + 'Delete' + "</button>" + "<br>";
+	input.value = "";
+	}
+});
+
+
+	// output1.innerHTML= "<p>" +"hello this is a test"+"</p>";
+
 
 input.addEventListener("keyup", inputToDiv);
 
