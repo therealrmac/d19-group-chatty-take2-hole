@@ -17,10 +17,15 @@ clearAll.addEventListener('click', function(event){
 	}
 });
 
-output1.innerHTML= "<p>" +"hello this is a test"+"</p>";
-
-
-
+function jsonMessage (messages){
+	var divContent;
+	var text= messages;
+	for(var i=0; i< text.length; i++){
+		divContent= "<p>"+ text[i].text+"</p>";
+		output1.innerHTML+= divContent;
+	}
+}
+Chatty.loadMessages(jsonMessage);
 ////testing out some stuf TL
 //var holdClickedDiv;
 //
