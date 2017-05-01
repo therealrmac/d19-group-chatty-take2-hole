@@ -1,6 +1,6 @@
 console.log("testing load.js");
 
-var Chatty = (function(){
+var Chatty = (function(chat){
 
 	var messages = [];
 
@@ -11,11 +11,11 @@ var Chatty = (function(){
       		loader.send();
       		loader.addEventListener("load", function (){
       			messages = JSON.parse(this.responseText);
-      			invoke(messages);
+      			callBack(messages);
       		});
 		}
 
 	}
-
+	return chat;
 
 })();
