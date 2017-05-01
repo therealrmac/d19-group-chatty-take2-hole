@@ -2,7 +2,7 @@
     display: inline-block;
 }
 
-.tl-stciky-nav {
+.tl-sticky-nav {
     position: fixed
         top: 0;
 }
