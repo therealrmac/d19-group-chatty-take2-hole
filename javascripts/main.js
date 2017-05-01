@@ -6,32 +6,22 @@ var input=document.getElementById('input');
 
 clearAll.addEventListener('click', function(event){
 	console.log('clear button responding');
-	if(output1.innerHTML== 0 || output2.innerHTML == 0){
+	if(output1.innerHTML== !"a" || output2.innerHTML == !"a"){
 		output1.innerHTML="";
 		output2.innerHTML="";
 		console.log('is this working?');
 	}
-	if(output1.innerHTML!= !0 || output2.innerHTML!= !0){
+	if(output1.innerHTML!= "a" || output2.innerHTML!= "a"){
 		event.stopPropagation(clearAll);
 		console.log('how about this one');
 	}
 });
 
-output1.innerHTML= "<p>" +"hello this is a test"+"</p>";
-
 input.addEventListener("keyup", inputToDiv);
 
 
 ///adds message from input to output2 Div
-function inputToDiv () {
-    var inputValue = input.value;
-    console.log("testing input value", inputValue);
-    output2.innerHTML =
-        `<div class="tl-messages"
-        <p>${inputValue}</p>
-        <button>Delete</button>
-        </div>`;
-}
+
 function jsonMessage (messages){
 	var divContent;
 	var text= messages;
