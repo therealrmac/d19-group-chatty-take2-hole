@@ -58,8 +58,9 @@ function jsonMessage (messages){
 	var divContent;
 	var text= messages;
 	for(var i=0; i< text.length; i++){
-		divContent= "<span>"+ text[i].text+"</span>"+ "<button class='delete'>" + 'Delete' + "</button>"+"<br>";
+		divContent= "<div>"+"<span>"+ text[i].text+"</span>"+ "<button class='delete'>" + 'Delete' + "</button>"+"<br>"+"</div>";
 		output.innerHTML+= divContent;
+		console.log(divContent);
 	}
 }
 Chatty.loadMessages(jsonMessage);
