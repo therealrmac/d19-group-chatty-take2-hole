@@ -1,17 +1,29 @@
 console.log("testing main.js");
 
 var clearAll= document.getElementById('clear');
-var output1= document.getElementById('output');
+var output= document.getElementById('output');
 var input=document.getElementById('input');
+
+output.addEventListener('click', function(event){
+	Chatty.deleteFromDom(event);
+});
+
+	input.addEventListener("keyup", function(event){
+	var key = event.keyCode;
+	if (key === 13) {
+	Chatty.inputChange('output', input.value);
+	input.value="";
+	}
+});
 
 clearAll.addEventListener('click', function(event){
 	console.log('clear button responding');
-	if(output1.innerHTML== 0 || output2.innerHTML == 0){
-		output1.innerHTML="";
+	if(output.innerHTML== 0 || output2.innerHTML == 0){
+		output.innerHTML="";
 		console.log('is this working?');
 	}
 
-	console.log(output1.innerHTML);
+	console.log(output.innerHTML);
 });
 
 
@@ -47,11 +59,11 @@ function jsonMessage (messages){
 	var text= messages;
 	for(var i=0; i< text.length; i++){
 		divContent= "<span>"+ text[i].text+"</span>"+ "<button class='delete'>" + 'Delete' + "</button>"+"<br>";
-		output1.innerHTML+= divContent;
+		output.innerHTML+= divContent;
 	}
 }
 Chatty.loadMessages(jsonMessage);
-Chatty.inputChange();
+//Chatty.inputChange();
 ////testing out some stuf TL
 //var holdClickedDiv;
 //
