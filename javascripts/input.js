@@ -2,18 +2,26 @@ console.log('input has loaded');
 
 var Chatty= (function(altchatty){
 	var messageArr=[];
-
-	altchatty.inputChange = function(input,message){
-			var output1= document.getElementById('output');
-			var input=document.getElementById('input');
-			input.addEventListener("keyup", function(event){
-		var key = event.keyCode;
-		if (key === 13) {
-			// console.log("input.value",input.value);
-		output1.innerHTML += input.value + "<button class='delete'>" + 'Delete' + "</button>" + "<br>";
-		input.value = "";
+	var counter=1;
+	altchatty.inputChange = function(elementid,message){
+			var outputDOM= document.getElementById(elementid);
+			outputDOM.innerHTML+= `<div id='newMessage--${counter}'>
+				<span>${message}</span>
+				<button>Delete</button>
+				</div>`;
+			var newMessage= document.getElementById("newMessage--"+counter);
+			messageArr.push({id: `newMessage--${counter}`,span: message});
+			counter++;
+			console.log(messageArr);	
 		}
-	});
-}
+	altchatty.privArr= function(argID){
+		for(var i=0; i< messageArr.length; i++){
+			if(messageArr[i].id=== argID){
+				messageArr.splice(i,1);
+				break;
+				console.log(messageArr[i]);
+			}
+		}
+	}
 	return altchatty;
-}(Chatty || {}));
+})(Chatty || {});

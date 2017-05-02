@@ -4,8 +4,7 @@ var Chatty = (function(chat){
 
 	var messages = [];
 
-	return {
-		loadMessages: function (callBack){
+		chat.loadMessages= function (callBack){
 			var loader = new XMLHttpRequest();
       		loader.open("GET", "messages.json");
       		loader.send();
@@ -13,9 +12,11 @@ var Chatty = (function(chat){
       			messages = JSON.parse(this.responseText).message;
       			callBack(messages);
       		});
+      		loader.addEventListener("error", function(event){
+            console.log("Data did not load");
+        	});
 		}
 
-	}
 	return chat;
 
-})();
+})(Chatty || {});
