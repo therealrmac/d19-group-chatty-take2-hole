@@ -1,37 +1,71 @@
-.tl-header {
-    display: inline-block;
+* {
+    font-family: 'Love Ya Like A Sister', cursive;
+}
+
+h3.col-md-2 {
+    font-size: 3em;
+}
+
+span {
+    font-size: 1.5em;
+}
+
+.center-block {
+    max-width: 80%;
 }
 
 .tl-sticky-nav {
     position: fixed
         top: 0;
 }
-#messageArea{
-	border: 2px solid black;
-	max-width: 90%;
-	margin: 20px 20px;
-	padding-bottom: 150px;
+
+.col-md-2 {
+    margin-bottom: 0;
+    margin-top: 26px;
+    margin-right: 20px;
 }
 
+.col-md-3 {
+    max-width: 20%;
+    margin-top: 40px;
+}
+
+.col-md-6 {
+    margin-right: 15px;
+    margin-top: 40px;
+}
+
+#messageArea{
+	border: 2px solid black;
+	margin: 20px 20px;
+	padding-bottom: 150px;
+    background-color: lightgrey;
+}
 
 .ar-checkboxes {
     margin: 10px 0;
-    margin-left: 90px;
-
+    text-align: center;
+    font-size: 1.5em;
 }
 
 .ar-margin {
     margin: 0;
 }
 
-.darkTheme {
-    background-color:
+
+.background {
+    background-color: salmon;
 }
 
 .ar-bodyStyle {
-    background-color: lightgrey;
+    background-color: black;
+    color: white;
+}
+
+.buttonStyle {
+    color: black;
 }
 
 .ar-fontSize {
-    font-size: 2em;
+    font-size: 2vw;
 }
