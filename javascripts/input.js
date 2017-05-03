@@ -8,6 +8,7 @@ var Chatty= (function(altchatty){
 			outputDOM.innerHTML+= `<div id='newMessage--${counter}'>
 				<span>${message}</span>
 				<button>Delete</button>
+				<button>Edit</button>
 				</div>`;
 			var newMessage= document.getElementById("newMessage--"+counter);
 			messageArr.push({id: `newMessage--${counter}`,span: message});
