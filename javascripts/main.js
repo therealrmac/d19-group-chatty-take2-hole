@@ -5,48 +5,38 @@ var output= document.getElementById('output');
 var input=document.getElementById('input');
 
 //global var to hold span element once we click edit
-//var span;
+var span;
+
 
 output.addEventListener('click', function(event){
-	Chatty.deleteFromDom(event);
+    if (event.target.tagName == "BUTTON" && event.target.innerHTML == "Delete") {
+        Chatty.deleteFromDom(event);
+    }else if (event.target.tagName == "BUTTON" && event.target.innerHTML == "Edit") {
+        input.focus();
+        console.log("testing event", event.target);
+        editBTN = event.target.parentElement.firstChild.innerHTML;
+        input.value = editBTN;
+        span = event.target.parentElement.firstChild;
+
+    }
+
 });
 
-//output.addEventListener('click', function(event){
-//    if (event.target.tagName == "BUTTON" && event.target.innerHTML == "Delete") {
-//        Chatty.deleteFromDom(event);
-//    }else if (event.target.tagName == "BUTTON" && event.target.innerHTML == "Edit") {
-//        input.focus();
-//        console.log("testing event", event.target);
-//        editBTN = event.target.parentElement.firstChild.innerHTML;
-//        input.value = editBTN;
-//        span = event.target.parentElement.firstChild;
-//
-//    }
-//
-//});
 
 
-	input.addEventListener("keyup", function(event){
+//makes delete and edit button work like a mofo asshole
+input.addEventListener("keyup", function(event){
 	var key = event.keyCode;
-	if (key === 13) {
-	Chatty.inputChange('output', input.value);
-	input.value="";
-	}
-});
 
-////makes delete and edit button work like a mofo asshole
-//input.addEventListener("keyup", function(event){
-//	var key = event.keyCode;
-//
-//    if (key === 13 && span == null) {
-//        Chatty.inputChange('output', input.value);
-//        input.value="";
-//    }else if (key === 13 && span != null) {
-//        span.innerHTML = input.value;
-//        span = null;
-//        input.value="";
-//    }
-//});
+    if (key === 13 && span == null) {
+        Chatty.inputChange('output', input.value);
+        input.value="";
+    }else if (key === 13 && span != null) {
+        span.innerHTML = input.value;
+        span = null;
+        input.value="";
+    }
+});
 
 
 
