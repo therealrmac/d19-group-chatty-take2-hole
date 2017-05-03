@@ -11,8 +11,8 @@ var Chatty= (function(altchatty){
 				<button>Edit</button>
 				</div>`;
 
-        //This is what Ryan was originally doing. so when the counter variable reaches 15 the output element removes it's first child...which is a div...this way only 20 messages will show on the screen
-            if (counter >= 15 ) {
+        //This is what Ryan was originally doing. so when the counter variable reaches 16 the output element removes it's first child...which is a div...this way only 20 messages will show on the screen
+            if (counter >= 16 ) {
                 var firstChildDIV = output.firstElementChild;
                 output.removeChild(firstChildDIV);
             }
