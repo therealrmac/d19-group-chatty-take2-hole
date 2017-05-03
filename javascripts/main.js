@@ -4,17 +4,41 @@ var clearAll= document.getElementById('clear');
 var output= document.getElementById('output');
 var input=document.getElementById('input');
 
+//global var to hold span element once we click edit
+var span;
+
+
 output.addEventListener('click', function(event){
-	Chatty.deleteFromDom(event);
+    if (event.target.tagName == "BUTTON" && event.target.innerHTML == "Delete") {
+        Chatty.deleteFromDom(event);
+    }else if (event.target.tagName == "BUTTON" && event.target.innerHTML == "Edit") {
+        input.focus();
+        console.log("testing event", event.target);
+        editBTN = event.target.parentElement.firstChild.innerHTML;
+        input.value = editBTN;
+        span = event.target.parentElement.firstChild;
+
+    }
+
 });
 
-	input.addEventListener("keyup", function(event){
+
+
+//makes delete and edit button work like a mofo asshole
+input.addEventListener("keyup", function(event){
 	var key = event.keyCode;
-	if (key === 13) {
-	Chatty.inputChange('output', input.value);
-	input.value="";
-	}
+
+    if (key === 13 && span == null) {
+        Chatty.inputChange('output', input.value);
+        input.value="";
+    }else if (key === 13 && span != null) {
+        span.innerHTML = input.value;
+        span = null;
+        input.value="";
+    }
 });
+
+
 
 clearAll.addEventListener('click', function(event){
 	console.log('clear button responding');
@@ -58,33 +82,10 @@ function jsonMessage (messages){
 	var divContent;
 	var text= messages;
 	for(var i=0; i< text.length; i++){
-		divContent= "<div>"+"<span>"+ text[i].text+"</span>"+ "<button class='delete'>" + 'Delete' + "</button>"+"<br>"+"</div>";
+		divContent= "<div>"+"<span>"+ text[i].text+"</span>"+ "<button class='delete'>" + 'Delete' + "</button>" + "<button>Edit</button>" +"<br>"+"</div>";
 		output.innerHTML+= divContent;
 		console.log(divContent);
 	}
 }
 Chatty.loadMessages(jsonMessage);
-//Chatty.inputChange();
-////testing out some stuf TL
-//var holdClickedDiv;
-//
-//
-//funcName.methodName();
-//
-//var clickedDeleteButton = document.getElementsByClassName("whateverClassNameis").addEventListener("click", deleteOutput);
-//
-//
-//function deleteOutput () {
-//    holdClickedDiv.event.currentTarget;
-//    var removeButton =
-//    for (var d = 0; 0 < holdMyVar.length; d++) {
-//        holdMyVar
-//    }
-//}
-//
-//    CarLot.addStyle(holyCrapOnAStick, "red");
-//
-//function changeText () {
-//    var holdMyCrap = holyCrapOnAStick.getElementsByTagName("p")[3];
-//    console.log("what is this", holdMyCrap);
-//    holdMyCrap.innerHTML = inputField.value;
+
