@@ -63,6 +63,7 @@ darkTheme.addEventListener("click", function() {
 	var themeVal = darkTheme.value;
 	if (themeVal == 1) {
 		event.target.closest("body").classList.toggle("ar-bodyStyle");
+        // event.target.getTagName("input").classList.toggle("buttonStyle");
 	}
 })
 
