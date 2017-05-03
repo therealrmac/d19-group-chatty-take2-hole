@@ -14,9 +14,9 @@ output.addEventListener('click', function(event){
     }else if (event.target.tagName == "BUTTON" && event.target.innerHTML == "Edit") {
         input.focus();
         console.log("testing event", event.target);
-        editBTN = event.target.parentElement.firstChild.innerHTML;
+        var editBTN = event.target.parentElement.firstElementChild.innerHTML;
         input.value = editBTN;
-        span = event.target.parentElement.firstChild;
+        span = event.target.parentElement.firstElementChild;
 
     }
 
