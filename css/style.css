@@ -69,3 +69,44 @@ span {
 .ar-fontSize {
     font-size: 2vw;
 }
+
+
+/***** Tam CSS for message divs and toggle BTNS *****/
+
+.flex {
+    display: flex;
+    flex-direction:column;
+    padding-top: 10px;
+}
+
+.tl-style-div {
+    margin: 5px;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.tl-button {
+    background-color: black;
+    color: white;
+}
+
+.tl-message-btn-toggle {
+    background-color: white;
+    color: black;
+    border: 4px inset salmon;
+}
+
+.tl-section-Div {
+    border: 4px inset salmon;
+}
+
+
+
+
+
+
+
+
+

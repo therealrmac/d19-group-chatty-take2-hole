@@ -14,7 +14,7 @@ output.addEventListener('click', function(event){
     }else if (event.target.tagName == "BUTTON" && event.target.innerHTML == "Edit") {
         input.focus();
         console.log("testing event", event.target);
-        var editBTN = event.target.parentElement.firstElementChild.innerHTML;
+        var editBTN = event.target.parentElement.firstElementChild.innerText;
         input.value = editBTN;
         span = event.target.parentElement.firstElementChild;
 
@@ -32,7 +32,7 @@ input.addEventListener("keyup", function(event){
         Chatty.inputChange('output', input.value);
         input.value="";
     }else if (key === 13 && span != null) {
-        span.innerHTML = input.value;
+        span.innerText = input.value;
         span = null;
         input.value="";
     }
@@ -43,7 +43,7 @@ input.addEventListener("keyup", function(event){
 clearAll.addEventListener('click', function(event){
 	console.log('clear button responding');
 	if(output.innerHTML== 0 || output2.innerHTML == 0){
-		output.innerHTML="";
+		output.innerText="";
 		console.log('is this working?');
 	}
 
@@ -61,8 +61,21 @@ var messageArea = document.getElementById("messageArea");
 
 darkTheme.addEventListener("click", function() {
 	var themeVal = darkTheme.value;
+    var butts = document.getElementsByTagName("button");
+
 	if (themeVal == 1) {
-		event.target.closest("body").classList.toggle("ar-bodyStyle");
+        event.target.closest("body").classList.toggle("ar-bodyStyle");
+        //adding background color, border,  and font color to clear Message BTN
+        var messageButt = document.getElementsByClassName("tl-message-btn");
+        messageButt[0].classList.toggle("tl-message-btn-toggle");
+
+        //adding background color, border,  and font color to clear input field, toggling same class as before
+        input.classList.toggle("tl-message-btn-toggle");
+
+        //adding background color, border,  and font color to all BTNs starting at index 1, toggling same class as before
+        for (var p = 1; p < butts.length; p++) {
+            butts[p].classList.toggle("tl-button");
+        }
         // event.target.getTagName("input").classList.toggle("buttonStyle");
 	}
 })
@@ -83,7 +96,7 @@ function jsonMessage (messages){
 	var divContent;
 	var text= messages;
 	for(var i=0; i< text.length; i++){
-		divContent= "<div>"+"<span>"+ text[i].text+"</span>"+ "<button class='delete'>" + 'Delete' + "</button>" + "<button>Edit</button>" +"<br>"+"</div>";
+		divContent= "<div class='tl-style-div'>"+"<span>"+ text[i].text+"</span><br>"+ "<button class='delete'>" + 'Delete' + "</button>" + "<button>Edit</button>" +"<br>"+"</div>";
 		output.innerHTML+= divContent;
 		console.log(divContent);
 	}

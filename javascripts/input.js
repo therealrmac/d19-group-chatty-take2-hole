@@ -5,20 +5,25 @@ var Chatty= (function(altchatty){
 	var counter=1;
 	altchatty.inputChange = function(elementid,message){
 			var outputDOM= document.getElementById(elementid);
-			outputDOM.innerHTML+= `<div id='newMessage--${counter}'>
+			outputDOM.innerHTML+= `<div id='newMessage--${counter}' class='tl-style-div'>
 				<span>${message}</span>
+                <br>
 				<button>Delete</button>
 				<button>Edit</button>
 				</div>`;
+        //this adds darkTheme toggle to new meassage buttons
+        var themeDiv = document.getElementById('newMessage--' + counter);
+            if (darkTheme.checked) {
+                var newMessageButt = themeDiv.getElementsByTagName("button");
+                newMessageButt[0].classList.toggle("tl-button");
+                newMessageButt[1].classList.toggle("tl-button");
+            }
 
-        //This is what Ryan was originally doing. ........
-        //had to make some change because there was some definite unexpected behavior when messages were deleted. Instead, grabbed all the div tags which return an array, then said if the length of that array becomes greater than 20 remove the first index.
+        //grabbed all the div tags which return an array, then said if the length of that array becomes greater than 20 remove the first index.
             var messageCount = output.getElementsByTagName("div");
             if (messageCount.length > 20) {
                 output.removeChild(messageCount[0]);
             }
-//                var firstChildDIV;
-//                output.removeChild(firstChildDIV);
 
 			var newMessage= document.getElementById("newMessage--"+counter);
 			messageArr.push({id: `newMessage--${counter}`,span: message});
