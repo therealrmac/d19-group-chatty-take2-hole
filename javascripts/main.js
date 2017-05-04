@@ -14,7 +14,7 @@ output.addEventListener('click', function(event){
     }else if (event.target.tagName == "BUTTON" && event.target.innerHTML == "Edit") {
         input.focus();
         console.log("testing event", event.target);
-        var editBTN = event.target.parentElement.firstElementChild.innerHTML;
+        var editBTN = event.target.parentElement.firstElementChild.innerText;
         input.value = editBTN;
         span = event.target.parentElement.firstElementChild;
 
@@ -32,7 +32,7 @@ input.addEventListener("keyup", function(event){
         Chatty.inputChange('output', input.value);
         input.value="";
     }else if (key === 13 && span != null) {
-        span.innerHTML = input.value;
+        span.innerText = input.value;
         span = null;
         input.value="";
     }
@@ -43,7 +43,7 @@ input.addEventListener("keyup", function(event){
 clearAll.addEventListener('click', function(event){
 	console.log('clear button responding');
 	if(output.innerHTML== 0 || output2.innerHTML == 0){
-		output.innerHTML="";
+		output.innerText="";
 		console.log('is this working?');
 	}
 
