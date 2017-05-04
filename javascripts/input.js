@@ -13,7 +13,7 @@ var Chatty= (function(altchatty){
 				</div>`;
         //this adds darkTheme toggle to new meassage buttons
         var themeDiv = document.getElementById('newMessage--' + counter);
-            if (darkTheme.value == 1) {
+            if (darkTheme.checked) {
                 var newMessageButt = themeDiv.getElementsByTagName("button");
                 newMessageButt[0].classList.toggle("tl-button");
                 newMessageButt[1].classList.toggle("tl-button");
