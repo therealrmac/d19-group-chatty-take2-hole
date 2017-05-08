@@ -5,7 +5,7 @@ var Chatty= (function(blah){
 		var findId= event.target.closest('div');
 		console.log("testing 123",findId);
 		//var message= document.getElementById(parentID);
-		output.removeChild(findId);
+		findId.remove();
 	}
 
 return blah;

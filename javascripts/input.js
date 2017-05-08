@@ -12,20 +12,20 @@ var Chatty= (function(altchatty){
 				<button>Edit</button>
 				</div>`;
         //this adds darkTheme toggle to new meassage buttons
-        var themeDiv = document.getElementById('newMessage--' + counter);
-            if (darkTheme.checked) {
-                var newMessageButt = themeDiv.getElementsByTagName("button");
+        var themeDiv = $('#newMessage--' + counter);
+            if (darkTheme.prop('checked')) {
+                var newMessageButt = themeDiv.find("button");
                 newMessageButt[0].classList.toggle("tl-button");
                 newMessageButt[1].classList.toggle("tl-button");
             }
 
         //grabbed all the div tags which return an array, then said if the length of that array becomes greater than 20 remove the first index.
-            var messageCount = output.getElementsByTagName("div");
+            var messageCount = output.find("div");
             if (messageCount.length > 20) {
-                output.removeChild(messageCount[0]);
+               messageCount[0].remove();
             }
 
-			var newMessage= document.getElementById("newMessage--"+counter);
+			var newMessage= $("#newMessage--"+counter);
 			messageArr.push({id: `newMessage--${counter}`,span: message});
 			counter++;
 			console.log(messageArr);
