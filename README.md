@@ -2,6 +2,8 @@
 
 ## Setup
 
+## Version two with jQuery
+
 Every teammate copy and run the following commands in the host machine terminal.
 
 ```bash

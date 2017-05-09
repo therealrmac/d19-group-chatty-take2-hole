@@ -1,5 +1,4 @@
 console.log("testing main.js");
-
 var clearAll= $("#clear");
 var output= $("#output");
 var input= $("#input");
@@ -62,7 +61,7 @@ darkTheme.on("click", function() {
     var butts = $("#button");
 
 	if (themeVal == 1) {
-        event.target.closest("body").classList.toggle("ar-bodyStyle");
+        $(event.target).closest("body").toggleClass("ar-bodyStyle");
         //adding background color, border,  and font color to clear Message BTN
         var messageButt = $(".tl-message-btn");
         messageButt[0].classList.toggle("tl-message-btn-toggle");
